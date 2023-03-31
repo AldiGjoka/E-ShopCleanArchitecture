@@ -3,7 +3,6 @@ using Application.Features.Baskets.Query.GetBasketById;
 using Application.Features.Baskets.Query.GetBasketByUserId;
 using Domain.Entities.BasketAggregate;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerceApi.Controllers
