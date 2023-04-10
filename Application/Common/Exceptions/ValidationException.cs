@@ -9,24 +9,19 @@ namespace Application.Common.Exceptions
 {
     public class ValidationException : Exception
     {
-        public ValidationException(ValidationResult validationResult)
+        public ValidationException()
+            : base("One or more validation failures have occurred.")
         {
-            ValidationErrors = new List<string>();
-
-            foreach (var error in validationResult.Errors)
-            {
-                ValidationErrors.Add(error.ErrorMessage);
-            }
+            Errors = new Dictionary<string, string[]>();
         }
 
         public ValidationException(IEnumerable<ValidationFailure> validationFailures)
-            : base()
+            : this()
         {
             Errors = validationFailures.GroupBy(e => e.PropertyName, e => e.ErrorMessage)
                 .ToDictionary(failure => failure.Key, failure => failure.ToArray());
         }
 
         public IDictionary<string, string[]> Errors { get; }
-        public List<string> ValidationErrors { get; private set; }
     }
 }

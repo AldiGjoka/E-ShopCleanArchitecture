@@ -3,14 +3,14 @@ using Application.Features.Orders.Query.GetAllOrdersByUserId;
 using Application.Features.Orders.Query.GetOrderById;
 using Domain.Entities.OrderAggregate;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerceApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class OrderController : ControllerBase
+    [Authorize]
+    public class OrderController : ApiControllerBase
     {
         private readonly IMediator _mediator;
         public OrderController(IMediator mediator)

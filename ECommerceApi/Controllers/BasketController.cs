@@ -3,13 +3,13 @@ using Application.Features.Baskets.Query.GetBasketById;
 using Application.Features.Baskets.Query.GetBasketByUserId;
 using Domain.Entities.BasketAggregate;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerceApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class BasketController : ControllerBase
+    [Authorize]
+    public class BasketController : ApiControllerBase
     {
         private readonly IMediator _mediator;
         public BasketController(IMediator mediator)

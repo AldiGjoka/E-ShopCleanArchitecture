@@ -1,15 +1,14 @@
 ﻿using Application.Common.Interfaces.Auth;
 using Application.Features.Authentication.Command.AuthCommand;
 using Application.Features.Authentication.Command.RegisterCommand;
+using ECommerceApi.Filters;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerceApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthController : ApiControllerBase
     {
         private readonly IAuthService _authService;
         private readonly IMediator _mediator;

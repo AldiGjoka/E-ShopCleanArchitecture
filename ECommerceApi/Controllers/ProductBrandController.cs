@@ -5,14 +5,14 @@ using Application.Features.Products.ProductBrands.Query;
 using Application.Features.Products.ProductBrands.Query.GetProductBrandById;
 using Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerceApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProductBrandController : ControllerBase
+    [Authorize]
+    public class ProductBrandController : ApiControllerBase
     {
         private readonly IMediator _mediator;
         public ProductBrandController(IMediator mediatR)

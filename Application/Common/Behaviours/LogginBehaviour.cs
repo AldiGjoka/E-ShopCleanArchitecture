@@ -18,13 +18,13 @@ namespace Application.Common.Behaviours
 
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
-            _logger.LogInformation("Starting request {@RequestName}, {@DateTimeNow}",
-                typeof(TRequest).Name, DateTime.Now);
+            _logger.LogInformation("Starting request {@RequestName}, {@DateTimeNow}, {@Request}",
+                typeof(TRequest).Name, DateTime.Now, request);
 
             var result = await next();
 
-            _logger.LogInformation("Request failure {@RequestName}, {@Error}, {@DateTime}",
-                    typeof(TRequest).Name, "This is response", DateTime.Now);
+            _logger.LogInformation("Request failure {@RequestName}, {@DateTime} {@Response},",
+                    typeof(TRequest).Name, DateTime.Now, result);
 
             return result;
         }
