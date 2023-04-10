@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Authentication.Command
+namespace Application.Features.Authentication.Command.RegisterCommand
 {
     public record RegistrateUserCommand : IRequest<RegistrationResponse>
     {

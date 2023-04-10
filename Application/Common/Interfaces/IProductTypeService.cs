@@ -8,5 +8,6 @@ namespace Application.Common.Interfaces
 {
     public interface IProductTypeService : IBaseRepository<ProductType>
     {
+        Task<bool> GetProductTypeByName(string name);
     }
 }
