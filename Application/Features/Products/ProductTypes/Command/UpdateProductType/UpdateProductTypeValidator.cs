@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Products.ProductTypes.Command.CreateProductType
+namespace Application.Features.Products.ProductTypes.Command.UpdateProductType
 {
-    public class CreateProductTypeValidator : AbstractValidator<CreateProductTypeCommand>
+    public class UpdateProductTypeValidator : AbstractValidator<UpdateProductTypeCommand>
     {
         private readonly IProductTypeService _productTypeService;
-        public CreateProductTypeValidator(IProductTypeService productTypeService)
+        public UpdateProductTypeValidator(IProductTypeService productTypeService)
         {
             _productTypeService = productTypeService;
 

@@ -1,5 +1,6 @@
 ﻿using Application.Common.Interfaces.Auth;
-using Application.Features.Authentication.Command;
+using Application.Features.Authentication.Command.AuthCommand;
+using Application.Features.Authentication.Command.RegisterCommand;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
