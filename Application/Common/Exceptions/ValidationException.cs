@@ -19,6 +19,14 @@ namespace Application.Common.Exceptions
             }
         }
 
+        public ValidationException(IEnumerable<ValidationFailure> validationFailures)
+            : base()
+        {
+            Errors = validationFailures.GroupBy(e => e.PropertyName, e => e.ErrorMessage)
+                .ToDictionary(failure => failure.Key, failure => failure.ToArray());
+        }
+
+        public IDictionary<string, string[]> Errors { get; }
         public List<string> ValidationErrors { get; private set; }
     }
 }

@@ -15,6 +15,7 @@ namespace Application.Features.Products.ProductBrands.Command.CreateProductBrand
 
             RuleFor(x => x.BrandName)
                 .NotEmpty().WithMessage("You must provide a brand name")
+                .NotNull().WithMessage("You must provide a brand name")
                 .MaximumLength(50).WithMessage("Lenght must not exceed 50 characters")
                 .MustAsync(BeUniqueTitle).WithMessage("The specified title already excists");
         }
@@ -23,7 +24,7 @@ namespace Application.Features.Products.ProductBrands.Command.CreateProductBrand
         {
             var result = await _productBrandService.GetProductBrandByName(title);
 
-            return result;
+            return !result;
         }
     }
 }

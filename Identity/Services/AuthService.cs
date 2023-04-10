@@ -33,7 +33,7 @@ namespace Identity.Services
             if(user == null)
                 throw new NotFoundException("User not found", request.Email);
 
-            var result = await _signInManager.PasswordSignInAsync(user.Email, request.Password, false, lockoutOnFailure: false);
+            var result = await _signInManager.PasswordSignInAsync(user.UserName, request.Password, false, lockoutOnFailure: false);
 
             if(!result.Succeeded)
                 throw new Exception($"Credentials for '{request.Email} aren't valid'.");
@@ -71,7 +71,7 @@ namespace Identity.Services
 
             if (result.Succeeded)
             {
-                return new RegistrationResponse() { UserId = user.Id };
+                return new RegistrationResponse(user.Id);
             }
             else
             {

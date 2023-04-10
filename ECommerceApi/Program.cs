@@ -1,4 +1,5 @@
 using Application;
+using Identity;
 using Persistence;
 using Serilog;
 
@@ -13,6 +14,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistanceService(builder.Configuration);
+builder.Services.AddIdentityServices(builder.Configuration);
 
 builder.Host.UseSerilog((context, configuration) =>
 {

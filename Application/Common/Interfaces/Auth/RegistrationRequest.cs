@@ -8,10 +8,19 @@ namespace Application.Common.Interfaces.Auth
 {
     public class RegistrationRequest
     {
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public string UserName { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
+        public RegistrationRequest(string firstName, string lastName, string email, string userName, string password)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            UserName = userName;
+            Password = password;
+        }
+
+        public string FirstName { get; private set; } = string.Empty;
+        public string LastName { get; private set; } = string.Empty;
+        public string Email { get; private set; } = string.Empty;
+        public string UserName { get; private set; } = string.Empty;
+        public string Password { get; private set; } = string.Empty;
     }
 }
